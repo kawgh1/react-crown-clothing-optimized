@@ -68,6 +68,34 @@ export const addCollectionAndDocuments = async (
     return await batch.commit();
 };
 
+// get collection snapshot and map to transformed collection that we can take the title and items out of from firebase
+// to use in our routing and rendering
+export const convertCollectionSnapshotToMap = (collections) => {
+    const transformedCollection = collections.docs.map((doc) => {
+        const { title, items } = doc.data();
+
+        return {
+            routeName: encodeURI(title.toLowerCase()),
+            id: doc.id,
+            title,
+            items,
+        };
+    });
+
+    // console.log(transformedCollection);
+    // we pass in our initial object
+    // the initial object goes into the first element in the transformedCollection and sets the first value to the title -> 'hats'
+    // so now it's an empty object with a property of 'hats' that is equal to the hats collection
+    // then it iterates again and grabs 'jackets'
+    // so now it's an empty object with a property of hats and jackets equal to the hats and jackets collections
+    // iterates again until all the collections are now properties of this object
+    // returns the object
+    return transformedCollection.reduce((accumulator, collection) => {
+        accumulator[collection.title.toLowerCase()] = collection;
+        return accumulator;
+    }, {});
+};
+
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 

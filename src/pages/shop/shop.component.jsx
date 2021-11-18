@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 
 // shop data
 // import SHOP_DATA from './shop.data.js'
 
-import './shop.styles.scss'
+import "./shop.styles.scss";
 
 // redux
 // import { connect } from 'react-redux'
@@ -14,28 +14,54 @@ import './shop.styles.scss'
 
 // import CollectionPreview from '../../components/collection-preview/collection-preview.component'
 
-import { Route } from 'react-router-dom';
+import { Route } from "react-router-dom";
 
-import CollectionsOverview from '../../components/collections-overview/collections-overview.component';
-import CollectionPage from '../collection/collection.component';
+import CollectionsOverview from "../../components/collections-overview/collections-overview.component";
+import CollectionPage from "../collection/collection.component";
 
 /////
 //
 // ShopPage is becoming a simple non-connected component now.
 //
 // We will now have the child component of the ShopPage be connected.
-// 
+//
 //////
 
+import {
+    firestore,
+    convertCollectionSnapshotToMap,
+} from "../../firebase/firebase.utils";
+class ShopPage extends React.Component {
+    unsubscribeFromSnapshot = null;
 
-const ShopPage = ({ match }) => (
-    <div className='shop-page'>
-      <Route exact path={`${match.path}`} component={CollectionsOverview} />
-      <Route path={`${match.path}/:collectionId`} component={CollectionPage} />
-    </div>
-  );
+    componentDidMount() {
+        const collectionRef = firestore.collection("collections");
 
-  export default ShopPage;
+        // whenever collection is updated or new collection
+        collectionRef.onSnapshot(async (snapshot) => {
+            const collectionsMap = convertCollectionSnapshotToMap(snapshot);
+            console.log(collectionsMap);
+        });
+    }
+    render() {
+        const { match } = this.props;
+        return (
+            <div className="shop-page">
+                <Route
+                    exact
+                    path={`${match.path}`}
+                    component={CollectionsOverview}
+                />
+                <Route
+                    path={`${match.path}/:collectionId`}
+                    component={CollectionPage}
+                />
+            </div>
+        );
+    }
+}
+
+export default ShopPage;
 // class ShopPage extends React.Component {
 
 //     constructor(props) {
@@ -50,21 +76,19 @@ const ShopPage = ({ match }) => (
 
 // since Component State is now stored in a reducer, we can use a functional component
 
-
 // const shopPage = ({ collections }) => (
-   
+
 //             <div className='shop-page'>
-            
+
 //                 {collections.map((collection) => (
 
-//                     <CollectionPreview 
-//                             key={collection.id} 
+//                     <CollectionPreview
+//                             key={collection.id}
 //                             title={collection.title}
-//                             items={collection.items} 
+//                             items={collection.items}
 //                             />
 //                 ))}
 
-               
 //             </div>
 //         );
 
@@ -75,4 +99,3 @@ const ShopPage = ({ match }) => (
 // });
 
 // export default connect(mapStateToProps)(shopPage);
-
