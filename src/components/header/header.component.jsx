@@ -1,55 +1,47 @@
-import React from 'react';
-import { Link } from 'react-router-dom'
-import './header.styles.scss'
-import { ReactComponent as Logo } from '../../assets/logo/crown.svg'
-import CartIcon from '../cart-icon/cart-icon.component'
-import CartDropdown from '../cart-dropdown/cart-dropdown.component';
+import React from "react";
+import { Link } from "react-router-dom";
+import {
+    HeaderContainer,
+    LogoContainer,
+    OptionsContainer,
+    OptionLink,
+} from "./header.styles";
+import { ReactComponent as Logo } from "../../assets/logo/crown.svg";
+import CartIcon from "../cart-icon/cart-icon.component";
+import CartDropdown from "../cart-dropdown/cart-dropdown.component";
 
 // REDUX
-import { connect } from 'react-redux'
+import { connect } from "react-redux";
 
 // SELECTORS
-import { createStructuredSelector } from 'reselect';
-import { selectCartHidden } from '../../redux/cart/cart.selectors';
-import { selectCurrentUser } from '../../redux/user/user.selectors';
-
+import { createStructuredSelector } from "reselect";
+import { selectCartHidden } from "../../redux/cart/cart.selectors";
+import { selectCurrentUser } from "../../redux/user/user.selectors";
 
 // FIREBASE
-import { auth } from '../../firebase/firebase.utils'
+import { auth } from "../../firebase/firebase.utils";
 
-const Header = ( props) => (
+const Header = ({ currentUser, hidden }) => (
+    <HeaderContainer>
+        <LogoContainer to="/">
+            <Logo className="logo" />
+        </LogoContainer>
 
-    <div className='container'>
-        <div className='header'>
-            <Link className='logo-container' to="/">
-                <Logo className='logo' style={{WebkitTapHighlightColor: "transparent"}}/>
-            </Link>
+        <OptionsContainer>
+            <OptionLink to="/shop">SHOP</OptionLink>
+            {currentUser ? (
+                <OptionLink as="div" onClick={() => auth.signOut()}>
+                    SIGN OUT
+                </OptionLink>
+            ) : (
+                <OptionLink to="/signin">SIGN IN</OptionLink>
+            )}
+            <OptionLink to="/shop">CONTACT</OptionLink>
 
-            <div className='options'>
-                <Link className='option' to='/shop'>
-                    SHOP
-                </Link>
-                {/* <Link className='option' to='/signin'>
-                    SIGN IN
-                </Link> */}
-                {
-                    props.currentUser ? 
-                    <div className='option sign' onClick={ () => auth.signOut() }>SIGN OUT</div>
-                    :
-                    <Link className='option sign' to='/signin'>SIGN IN</Link>
-                }
-                <Link className='option' to='/contact'>
-                    CONTACT
-                </Link>
-
-                <CartIcon  />
-            </div>
-                {
-                    props.hidden ? null : <CartDropdown />
-                }
-            
-        </div>
-    </div>    
+            <CartIcon />
+        </OptionsContainer>
+        {hidden ? null : <CartDropdown />}
+    </HeaderContainer>
 );
 
 // REACT-REDUX
@@ -59,20 +51,19 @@ const Header = ( props) => (
 
 //     currentUser: state.user.currentUser,
 //     cart: state.cart.hidden
-// }); 
+// });
 
 // UNSTRUCTURED SELECTOR
 // const mapStateToProps = (state) => ({
-//     currentUser : selectCurrentUser(state), 
+//     currentUser : selectCurrentUser(state),
 //     hidden : selectCartHidden(state)
 // });
 
 // STRUCTURED SELECTOR - imagine if you had 10-20 selectors, this simplifies and passes 1 layer top level state to each selector
 const mapStateToProps = createStructuredSelector({
     currentUser: selectCurrentUser,
-    hidden : selectCartHidden
+    hidden: selectCartHidden,
 });
-
 
 // export default Header;
 export default connect(mapStateToProps)(Header);

@@ -1,62 +1,89 @@
-import React from 'react';
+import React from "react";
 
-import './cart-dropdown.styles.scss'
+import CartItem from "../cart-item/cart-item.component";
 
-import CartItem from '../cart-item/cart-item.component'
-
-import CustomButton from '../custom-button/custom-button.component'
+import CustomButton from "../custom-button/custom-button.component";
 
 // React Router
-import { withRouter } from 'react-router-dom'
+import { withRouter } from "react-router-dom";
 
 // REDUX
-import { connect } from 'react-redux'
+import { connect } from "react-redux";
 
 // Selectors
-import { selectCartItems, selectCartTotal } from '../../redux/cart/cart.selectors'
-import { createStructuredSelector } from 'reselect';
-import { toggleCartHidden } from '../../redux/cart/cart.actions';
+import {
+    selectCartItems,
+    selectCartTotal,
+} from "../../redux/cart/cart.selectors";
+import { createStructuredSelector } from "reselect";
+import { toggleCartHidden } from "../../redux/cart/cart.actions";
+
+import {
+    CartDropdownContainer,
+    CartDropdownButton,
+    EmptyMessageContainer,
+    CartItemsContainer,
+    Subtotal,
+} from "./cart-dropdown.styles";
 
 const CartDropdown = ({ cartItems, history, total, dispatch }) => (
-
-    
-
-    <div className='cart-dropdown'>
-        <div className='cart-items' />
-        {
-            cartItems.length ? (
-                cartItems.map(cartItem => <CartItem key={cartItem.id} item={cartItem} />
-                )
+    <CartDropdownContainer>
+        <CartItemsContainer>
+            {cartItems.length ? (
+                cartItems.map((cartItem) => (
+                    <CartItem key={cartItem.id} item={cartItem} />
+                ))
             ) : (
-                <span className='empty-message'>Your cart is empty!</span>
-            )
+                <EmptyMessageContainer>
+                    Your cart is empty!
+                </EmptyMessageContainer>
+            )}
 
-        }
+            {cartItems.length ? (
+                <div>
+                    <hr
+                        style={{
+                            color: "green",
+                            width: "95%",
+                            marginBottom: "5px",
+                        }}
+                    />
 
-        {
-            cartItems.length ? (
-                <div >
+                    <Subtotal>
+                        <span>Subtotal </span>
+                        <span style={{ fontWeight: "bold", color: "green" }}>
+                            {" "}
+                            ${total}
+                        </span>
+                    </Subtotal>
 
-                    <hr style={{ color: "green", width: "95%", marginBottom: "5px" }} />
-
-                    <div className='subtotal'>
-                            <span>Subtotal </span>
-                            <span style={{ fontWeight: "bold", color: "green"}}> ${total}</span>
-                    </div>
-                    
-
-                    <hr style={{ color: "green", width: "95%", marginBottom: "12px" }} />
-
+                    <hr
+                        style={{
+                            color: "green",
+                            width: "95%",
+                            marginBottom: "12px",
+                        }}
+                    />
                 </div>
-            ) : <hr style={{ color: "green", width: "95%", marginBottom: "12px" }} />
-
-        }
-
-        
-
-        <CustomButton onClick={ () => {history.push('/checkout');
-                                        dispatch(toggleCartHidden()) }}>CHECKOUT</CustomButton>
-    </div>
+            ) : (
+                <hr
+                    style={{
+                        color: "green",
+                        width: "95%",
+                        marginBottom: "12px",
+                    }}
+                />
+            )}
+        </CartItemsContainer>
+        <CartDropdownButton
+            onClick={() => {
+                history.push("/checkout");
+                dispatch(toggleCartHidden());
+            }}
+        >
+            CHECKOUT
+        </CartDropdownButton>
+    </CartDropdownContainer>
 );
 
 // React Redux
@@ -72,9 +99,9 @@ const CartDropdown = ({ cartItems, history, total, dispatch }) => (
 // });
 
 // STRUCTURED SELECTOR
-const mapStateToProps = createStructuredSelector ({
+const mapStateToProps = createStructuredSelector({
     cartItems: selectCartItems,
-    total: selectCartTotal
+    total: selectCartTotal,
 });
 
 // connect() returns a component, withRouter() takes a component as a parameter

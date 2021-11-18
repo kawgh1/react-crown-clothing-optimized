@@ -28,11 +28,11 @@ export const HeaderBlockContainer = styled.div`
     width: 25%;
 
     &:nth-last-child(2) {
-        width: 15%;
+        width: 23%;
     }
 
     &:last-child {
-        width: 17%;
+        width: 12%;
     }
 `;
 

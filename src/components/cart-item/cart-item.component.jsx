@@ -1,22 +1,25 @@
-import React from 'react'
-import './cart-item.styles.scss'
-
-
+import React from "react";
+import {
+    CartItemContainer,
+    ItemDetailsContainer,
+    CartItemImage,
+    Footer,
+} from "./cart-item.styles";
 
 const CartItem = ({ item: { imageUrl, price, name, quantity } }) => (
-    <div className='cart-item'>
-        <img src={imageUrl} alt='item' />
-        <div className='item-details'>
-            <span className='name'>{name}</span>
-            <div className='footer'>
-                <span className='price'>{quantity} x ${price}</span>
-                
-                <span className='item-total'>${quantity * price}</span>
-            </div>
-            
-            
-        </div>
-    </div>
+    <CartItemContainer>
+        <CartItemImage src={imageUrl} alt="item" />
+        <ItemDetailsContainer>
+            <span>{name}</span>
+            <Footer>
+                <span style={{ minWidth: "60px" }}>
+                    {quantity} x ${price}
+                </span>
+
+                <span style={{ fontWeight: "500" }}>${quantity * price}</span>
+            </Footer>
+        </ItemDetailsContainer>
+    </CartItemContainer>
 );
 
 export default CartItem;

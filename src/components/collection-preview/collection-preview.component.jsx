@@ -1,18 +1,26 @@
-import React from 'react'
-import './collection-preview.styles.scss'
+import React from "react";
+import { withRouter } from "react-router-dom";
+import {
+    CollectionPreviewContainer,
+    TitleContainer,
+    PreviewContainer,
+} from "./collection-preview.styles";
 
-import CollectionItem from '../collection-item/collection-item.component';
+import CollectionItem from "../collection-item/collection-item.component";
 
-const CollectionPreview = (props) => (
-
-    <div className='collection-preview'>
-    {/* I want this to link to the collection overview */}
-        <h1 className='title'>{props.title.toUpperCase()}</h1>
+const CollectionPreview = ({ title, items, history, match, routeName }) => (
+    <CollectionPreviewContainer>
+        {/* I want this to link to the collection overview */}
+        <TitleContainer
+            onClick={() => history.push(`${match.path}/${routeName}`)}
+        >
+            {title.toUpperCase()}
+        </TitleContainer>
 
         <hr style={{ color: "red", width: "90%" }} />
-        <div className='preview'>
-        {/* REACT */}
-        {/* {
+        <PreviewContainer>
+            {/* REACT */}
+            {/* {
             props.items
                     .filter((item, idx) => idx < 3 ) // only show first 3 items in collection
                     .map((item) => (
@@ -21,21 +29,17 @@ const CollectionPreview = (props) => (
             ))
         } */}
 
-        {/* REDUX */}
-        {props.items
-        .filter((item, idx) => idx < 3)
-        .map(item => (
-          <CollectionItem key={item.id} item={item} />
-        ))}
-
-
-
-        </div>
-    </div>
+            {/* REDUX */}
+            {items
+                .filter((item, idx) => idx < 3)
+                .map((item) => (
+                    <CollectionItem key={item.id} item={item} />
+                ))}
+        </PreviewContainer>
+    </CollectionPreviewContainer>
 );
 
 export default CollectionPreview;
-
 
 // Initial
 
@@ -49,12 +53,9 @@ export default CollectionPreview;
 //                 .filter((item, idx) => idx < 4 ) // only show first 4 items in collection
 //                 .map((item) => (
 //             <div key={item.id}> { item.name } </div>
-           
 
 //         ))
 //     }
-
-
 
 //     </div>
 // </div>
