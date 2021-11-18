@@ -1,16 +1,16 @@
 .sign-in {
-	width: 20rem;
-	display: flex;
-	flex-direction: column;
-	margin-top: 2rem;
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    margin: 2rem auto;
 
-	.title {
-		margin: 1px 0;
-	}
+    .title {
+        margin: 1px 0;
+    }
 
-	.buttons {
-		// margin: auto 25px;
-		display: flex;
-		justify-content: space-around;
-	}
+    .buttons {
+        // margin: auto 25px;
+        display: flex;
+        justify-content: space-around;
+    }
 }

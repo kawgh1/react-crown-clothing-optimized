@@ -1,8 +1,16 @@
 # React-based e-Commerce site with Redux
 
--   This `main` branch contains Redux and the more advanced features.
--   The `react_only` branch contains only react and basic firebase functionality.
--   The `react_redux_selectors` branch contains basic react, redux and selectors only
+-   This is the optimized version of this project using:
+
+    -   CSS-in-JS
+    -   styled components
+    -   Firebase
+    -   Redux Thunk
+    -   Redux Sagas
+    -   Hooks
+    -   Context API
+    -   Apollo
+    -   GraphQL
 
 -   Based on course by Zero-to-Mastery
     -   https://github.com/ZhangMYihua/lesson-34
