@@ -74,10 +74,6 @@
                 -   border: ${({ isActive }) => isActive ? '1px solid black' : '3px dotted green'};
             -   `;
 
-
-        -   For this project, I already coded the whole thing in Sass. I refactored the pages CSS into styled components. Going back and moving every component to styled components seems kind of pointless with no real gain for the work involved. Better to pick a CSS pattern and stick with it.
-        -   For styled component references see - https://github.com/ZhangMYihua/lesson-26-complete/tree/master/src
-
 -   ### Higher Order Components (HOC)
 
     -   used for displaying the Spinner component when asynchronous data is loading, and our regular components when that data is received
