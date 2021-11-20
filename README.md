@@ -72,7 +72,10 @@
                 const Text = styled.div`
                     color: red;
                     font-size: 29px;
-                    border: ${({ isActive }) => isActive ? '1px solid black' : '3px dotted green'};
+                    border: ${({ isActive }) => isActive
+                            ? '1px solid black'
+                            : '3px dotted green'
+                            };
                 `;
 
 -   ### Higher Order Components (HOC)
