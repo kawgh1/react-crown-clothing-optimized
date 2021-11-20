@@ -77,7 +77,21 @@
     -   For styled component references see - https://github.com/ZhangMYihua/lesson-26-complete/tree/master/src
 
     -   ### Higher Order Components (HOC)
+
         -   used for displaying the Spinner component when asynchronous data is loading, and our regular components when that data is received
+
+    -   ### REDUX THUNK
+
+        -   What is Redux Thunk?
+            -   Asynchronous Event Handling with Redux
+            -   A piece of middleware that allows us to fire functions
+        -   All Thunks are are action creator that returns a function that gets the dispatch
+
+            -   very similar to the mapDispatchToProps
+
+        -   Instead of creating an action (javascript object) that returns an action (javascript object) we're writing a function that returns a function that gets dispatch in it, so that whenever dispatch is called,it will fire multiple actions
+
+        -   **If redux-thunk middleware is enabled, any time you attempt to `dispatch` a function instead of an object, the middleware will call that function with the `dispatch` method itself as the first argument**
 
 ## Things I Added
 

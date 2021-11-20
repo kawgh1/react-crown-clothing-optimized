@@ -2,6 +2,9 @@ import { createStore, applyMiddleware } from "redux";
 
 import logger from "redux-logger";
 
+// Redux Thunk
+import thunk from "redux-thunk";
+
 import rootReducer from "./root-reducer";
 
 // REDUX PERSIST
@@ -10,7 +13,7 @@ import { persistStore } from "redux-persist";
 
 // The Middleware that the Store is expecting from Redux is an array []
 
-const middlewares = [];
+const middlewares = [thunk];
 
 // only run logger (in browser console) in development mode, not production
 if (process.env.NODE_ENV === "development") {
