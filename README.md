@@ -93,6 +93,8 @@
 
         -   **If redux-thunk middleware is enabled, any time you attempt to `dispatch` a function instead of an object, the middleware will call that function with the `dispatch` method itself as the first argument**
 
+    -   ### REDUX SAGAS
+
 ## Things I Added
 
 -   I added a lot of custom styling, images and mobile view / responsive design

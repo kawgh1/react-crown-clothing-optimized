@@ -29,7 +29,7 @@ import CollectionPage from "../collection/collection.component";
 
 // redux
 import { connect } from "react-redux";
-import { updateCollections } from "../../redux/shop/shop.actions";
+import { fetchCollectionsStart } from "../../redux/shop/shop.actions";
 
 import {
     firestore,
