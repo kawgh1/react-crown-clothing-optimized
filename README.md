@@ -64,36 +64,36 @@
 
 -   ### Styled Components
 
-    -   **npm install styled-components**
-    -   https://github.com/styled-components/styled-components
-    -   styled components allow features like hover
-    -   styled components also allow us pass props to our styles which is basically impossible in regular CSS
-        -   const Text = styled.div`
-            -   color: red;
-            -   font-size: 29px;
-            -   border: ${({ isActive }) => isActive ? '1px solid black' : '3px dotted green'};
-        -   `;
-    -   For this project, I already coded the whole thing in Sass. I refactored the pages CSS into styled components. Going back and moving every component to styled components seems kind of pointless with no real gain for the work involved. Better to pick a CSS pattern and stick with it.
-    -   For styled component references see - https://github.com/ZhangMYihua/lesson-26-complete/tree/master/src
+        -   **npm install styled-components**
+        -   https://github.com/styled-components/styled-components
+        -   styled components allow features like hover
+        -   styled components also allow us pass props to our styles which is basically impossible in regular CSS
+            -   const Text = styled.div`
+                -   color: red;
+                -   font-size: 29px;
+                -   border: ${({ isActive }) => isActive ? '1px solid black' : '3px dotted green'};
+            -   `;
+        -   For this project, I already coded the whole thing in Sass. I refactored the pages CSS into styled components. Going back and moving every component to styled components seems kind of pointless with no real gain for the work involved. Better to pick a CSS pattern and stick with it.
+        -   For styled component references see - https://github.com/ZhangMYihua/lesson-26-complete/tree/master/src
 
-    -   ### Higher Order Components (HOC)
+-   ### Higher Order Components (HOC)
 
-        -   used for displaying the Spinner component when asynchronous data is loading, and our regular components when that data is received
+    -   used for displaying the Spinner component when asynchronous data is loading, and our regular components when that data is received
 
-    -   ### REDUX THUNK
+-   ### REDUX THUNK
 
-        -   What is Redux Thunk?
-            -   Asynchronous Event Handling with Redux
-            -   A piece of middleware that allows us to fire functions
-        -   All Thunks are are action creator that returns a function that gets the dispatch
+    -   What is Redux Thunk?
+        -   Asynchronous Event Handling with Redux
+        -   A piece of middleware that allows us to fire functions
+    -   All Thunks are is an action creator that returns a function that gets the `dispatch` method, very similar to the mapDispatchToProps
 
-            -   very similar to the mapDispatchToProps
+    -   Instead of creating an action (javascript object) that returns an action (javascript object) we're writing a function that returns a function that gets dispatch in it, so that whenever dispatch is called, it will fire multiple actions
 
-        -   Instead of creating an action (javascript object) that returns an action (javascript object) we're writing a function that returns a function that gets dispatch in it, so that whenever dispatch is called,it will fire multiple actions
+    -   **If redux-thunk middleware is enabled, any time you attempt to `dispatch` a function instead of an object, the middleware will call that function with the `dispatch` method itself as the first argument**
 
-        -   **If redux-thunk middleware is enabled, any time you attempt to `dispatch` a function instead of an object, the middleware will call that function with the `dispatch` method itself as the first argument**
+-   ## REDUX SAGAS
 
-    -   ### REDUX SAGAS
+![Redux-Saga-Flow-Diagram](https://raw.githubusercontent.com/kawgh1/react-crown-clothing-optimized/master/redux-saga-flow-diagram.png)
 
 ## Things I Added
 
