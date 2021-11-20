@@ -64,15 +64,10 @@
 
 -   ### Styled Components
 
-        -   **npm install styled-components**
-        -   https://github.com/styled-components/styled-components
-        -   styled components allow features like hover
-        -   styled components also allow us pass props to our styles which is basically impossible in regular CSS
-            -   const Text = styled.div`
-                -   color: red;
-                -   font-size: 29px;
-                -   border: ${({ isActive }) => isActive ? '1px solid black' : '3px dotted green'};
-            -   `;
+    -   **npm install styled-components**
+    -   https://github.com/styled-components/styled-components
+    -   styled components allow features like hover
+    -   styled components also allow us pass props to our styles which is basically impossible in regular CSS - const Text = styled.div` - color: red; - font-size: 29px; - border: ${({ isActive }) => isActive ? '1px solid black' : '3px dotted green'}; - `;
 
 -   ### Higher Order Components (HOC)
 
