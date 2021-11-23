@@ -1,4 +1,4 @@
-import SHOP_DATA from "./unused/shop.data";
+//import SHOP_DATA from "./unused/shop.data";
 
 import ShopActionTypes from "./shop.types";
 

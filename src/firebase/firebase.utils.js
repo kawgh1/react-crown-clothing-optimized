@@ -12,6 +12,8 @@ const config = {
     measurementId: "G-WM192G384F",
 };
 
+firebase.initializeApp(config);
+
 // FireStore Database
 export const createUserProfileDocument = async (userAuth, additionalData) => {
     // if there is no Google user on Google Signin -> if userAuth == null
@@ -49,8 +51,6 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
     return userRef;
 };
 
-firebase.initializeApp(config);
-
 // populate product collection in firebase
 // used in componentDidMount in App.js - only ran once to populate
 export const addCollectionAndDocuments = async (
@@ -70,7 +70,7 @@ export const addCollectionAndDocuments = async (
 
 // get collection snapshot and map to transformed collection that we can take the title and items out of from firebase
 // to use in our routing and rendering
-export const convertCollectionSnapshotToMap = (collections) => {
+export const convertCollectionsSnapshotToMap = (collections) => {
     const transformedCollection = collections.docs.map((doc) => {
         const { title, items } = doc.data();
 
@@ -94,6 +94,15 @@ export const convertCollectionSnapshotToMap = (collections) => {
         accumulator[collection.title.toLowerCase()] = collection;
         return accumulator;
     }, {});
+};
+
+export const getCurrentUser = () => {
+    return new Promise((resolve, reject) => {
+        const unsubscribe = auth.onAuthStateChanged((userAuth) => {
+            unsubscribe();
+            resolve(userAuth);
+        }, reject);
+    });
 };
 
 export const auth = firebase.auth();
