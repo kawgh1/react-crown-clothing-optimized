@@ -107,20 +107,22 @@
 
     -   Functions that have the ability to 'pause' and run single lines of code when called, in sequential order
 
-function gen(i) {
-yield i;
-yield i + 10;
-return 25;
-}
+            function gen(i) {
 
-const g = gen(5);
 
-g.next()
---> returns {value: 5, done: false}
-g.next()
---> returns {value 15, done: false}
-g.next()
---> returns {value: 25, done: true}
+                yield i;
+                yield i + 10;
+                return 25;
+            }
+
+            const g = gen(5);
+
+            g.next()
+            --> returns {value: 5, done: false}
+            g.next()
+            --> returns {value 15, done: false}
+            g.next()
+            --> returns {value: 25, done: true}
 
 ## Things I Added
 
