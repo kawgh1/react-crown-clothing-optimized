@@ -13,7 +13,7 @@ a Spinner Component or the Wrapped Component with ...otherProps
 */
 const WithSpinner = (WrappedComponent) => {
     const Spinner = ({ isLoading, ...otherProps }) => {
-        return isLoading ? (
+        return !isLoading ? (
             <SpinnerOverlay>
                 <SpinnerContainer />
             </SpinnerOverlay>

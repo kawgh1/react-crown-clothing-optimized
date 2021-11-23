@@ -9,20 +9,6 @@ import { selectDirectorySections } from "../../redux/directory/directory.selecto
 
 import { DirectoryMenuContainer } from "./directory.styles";
 
-// Since Directory needs to have State, it needs to be a Class Component
-
-// class Directory extends React.Component {
-
-//     constructor() {
-//         super();
-
-//         this.state = {
-//             // directory data moved to redux/directory/directory.reducer.js
-//         }
-//     }
-
-// since Component State is now stored in a reducer, we can use a functional component
-
 const Directory = ({ sections }) => (
     <DirectoryMenuContainer>
         <hr style={{ color: "white", width: "90%" }} />
@@ -33,6 +19,7 @@ const Directory = ({ sections }) => (
                 title={section.title}
                 size={section.size}
                 linkUrl={section.linkUrl}
+                {...console.log(section.linkUrl)}
             />
         ))}
 

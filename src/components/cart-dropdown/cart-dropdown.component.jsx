@@ -2,7 +2,7 @@ import React from "react";
 
 import CartItem from "../cart-item/cart-item.component";
 
-import CustomButton from "../custom-button/custom-button.component";
+// import CustomButton from "../custom-button/custom-button.component";
 
 // React Router
 import { withRouter } from "react-router-dom";

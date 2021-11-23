@@ -4,7 +4,6 @@ import {
     BackgroundImageContainer,
     ContentContainer,
     ContentTitle,
-    ContentSubtitle,
 } from "./menu-item.styles";
 import { withRouter } from "react-router";
 

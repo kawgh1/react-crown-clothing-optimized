@@ -12,24 +12,24 @@ import CheckoutPage from "./pages/checkout/checkout.component";
 import Header from "./components/header/header.component";
 
 // FIREBASE
-import {
-    auth,
-    createUserProfileDocument,
-    addCollectionAndDocuments,
-} from "./firebase/firebase.utils";
+// import {
+//     auth,
+//     createUserProfileDocument,
+//     addCollectionAndDocuments,
+// } from "./firebase/firebase.utils";
 // when a user signs in, we want to store that in **STATE** so that our app can know that across all pages and components
 // because we want to access our current 'user-object' throughout our app
 
 // REDUX
 import { connect } from "react-redux";
-import { setCurrentUser } from "./redux/user/user.actions";
+// import { setCurrentUser } from "./redux/user/user.actions";
 
 // SELECTORS
 import { selectCurrentUser } from "./redux/user/user.selectors";
 import { checkUserSession } from "./redux/user/user.actions";
 import { createStructuredSelector } from "reselect";
 
-import { selectCollectionsForPreview } from "./redux/shop/shop.selectors";
+// import { selectCollectionsForPreview } from "./redux/shop/shop.selectors";
 
 const App = ({ checkUserSession, currentUser }) => {
     useEffect(() => {

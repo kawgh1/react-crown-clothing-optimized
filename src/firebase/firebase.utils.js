@@ -1,8 +1,13 @@
-import firebase from "firebase/app";
-import "firebase/firestore";
-import "firebase/auth";
+// import firebase from "firebase/app";
+// import "firebase/firestore";
+// import "firebase/auth";
 
-const config = {
+// v9 compat packages are API compatible with v8 code
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
+import "firebase/compat/firestore";
+
+const firebaseConfig = {
     apiKey: "AIzaSyCRJyTtQWLJtliwks8xnRpGjCZ5K3AivRU",
     authDomain: "crown-db-62654.firebaseapp.com",
     projectId: "crown-db-62654",
@@ -12,7 +17,8 @@ const config = {
     measurementId: "G-WM192G384F",
 };
 
-firebase.initializeApp(config);
+//initialize app
+const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 // FireStore Database
 export const createUserProfileDocument = async (userAuth, additionalData) => {
@@ -106,11 +112,11 @@ export const getCurrentUser = () => {
 };
 
 export const auth = firebase.auth();
-export const firestore = firebase.firestore();
+export const firestore = firebaseApp.firestore();
 
 const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({ prompt: "select_account" });
 
 export const signInWithGoogle = () => auth.signInWithPopup(provider);
 
-export default firebase;
+export default firebaseApp;

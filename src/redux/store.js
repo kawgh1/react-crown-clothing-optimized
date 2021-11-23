@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware } from "redux";
 
-import logger from "redux-logger";
+// import logger from "redux-logger";
 
 // Redux Thunk has been replaced with Redux Sagas
 // import thunk from "redux-thunk";
@@ -23,7 +23,7 @@ const middlewares = [sagaMiddleware];
 
 // only run logger (in browser console) in development mode, not production
 if (process.env.NODE_ENV === "development") {
-    middlewares.push(logger);
+    // middlewares.push(logger);
 }
 export const store = createStore(rootReducer, applyMiddleware(...middlewares));
 
