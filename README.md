@@ -94,11 +94,33 @@
     -   **If redux-thunk middleware is enabled, any time you attempt to `dispatch` a function instead of an object, the middleware will call that function with the `dispatch` method itself as the first argument**
 
 -   ## REDUX SAGAS
+
     ![Redux-Saga-Flow-Diagram](https://raw.githubusercontent.com/kawgh1/react-crown-clothing-optimized/master/redux-saga-flow-diagram.png)
+
+    -   **npm install redux-saga**
     -   Sagas are like a set of code that fires a conditionally different function based on the action coming into the Saga Middleware
         -   The more actions you have coming in the more intricate the Saga can get with many layers of conditionality
         -   Can be multiple Sagas listening for the same action or different actions, but they do not run **until** they hear the action they are listening for
     -   **Reducers fire first, then sagas receive the action. From there, sagas can fire off new actions which in turn hit the reducers and other sagas as well!**
+
+-   ### Generator Functions
+
+    -   Functions that have the ability to 'pause' and run single lines of code when called, in sequential order
+
+        function gen(i) {
+        yield i;
+        yield i + 10;
+        return 25;
+        }
+
+        const g = gen(5);
+
+        g.next()
+        --> returns {value: 5, done: false}
+        g.next()
+        --> returns {value 15, done: false}
+        g.next()
+        --> returns {value: 25, done: true}
 
 ## Things I Added
 
