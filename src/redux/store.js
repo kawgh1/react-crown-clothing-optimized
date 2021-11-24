@@ -12,7 +12,8 @@ import rootReducer from "./root-reducer";
 import { persistStore } from "redux-persist";
 
 // REDUX SAGAS
-import createSagaMiddleware from "@redux-saga/core";
+import createSagaMiddleware from "redux-saga";
+import rootSaga from "./root-saga";
 
 const sagaMiddleware = createSagaMiddleware();
 // The Middleware that the Store is expecting from Redux is an array []
@@ -28,7 +29,7 @@ if (process.env.NODE_ENV === "development") {
 export const store = createStore(rootReducer, applyMiddleware(...middlewares));
 
 // redux-saga
-// sagaMiddleware.run();
+sagaMiddleware.run(rootSaga);
 
 //redux-persist
 export const persistor = persistStore(store);
