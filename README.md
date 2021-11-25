@@ -98,6 +98,7 @@
     ![Redux-Saga-Flow-Diagram](https://raw.githubusercontent.com/kawgh1/react-crown-clothing-optimized/master/redux-saga-flow-diagram.png)
 
     -   **npm install redux-saga**
+    -   https://redux-saga.js.org/
     -   Sagas are like a set of code that fires a conditionally different function based on the action coming into the Saga Middleware
         -   The more actions you have coming in the more intricate the Saga can get with many layers of conditionality
         -   Can be multiple Sagas listening for the same action or different actions, but they do not run **until** they hear the action they are listening for
