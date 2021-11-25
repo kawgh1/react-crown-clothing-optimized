@@ -11,7 +11,7 @@ export const CollectionPageContainer = styled.div`
 
 export const CollectionTitle = styled.h2`
     font-size: 38px;
-    margin: 0 auto 30px;
+    margin: 0 auto 10px;
 `;
 
 export const CollectionItemsContainer = styled.div`

@@ -30,6 +30,7 @@ const CollectionPage = ({ collection }) => {
     return (
         <CollectionPageContainer>
             <CollectionTitle>{title}</CollectionTitle>
+            <hr style={{ color: "red", width: "90%" }} />
             <CollectionItemsContainer>
                 {items.map((item) => (
                     <CollectionItem key={item.id} item={item} />

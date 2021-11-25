@@ -26,9 +26,10 @@ export const OptionsContainer = styled.div`
 `;
 
 export const OptionLink = styled(Link)`
-    margin-top: 30px;
+    margin-top: 25px;
     cursor: pointer;
     min-width: 60px;
+    padding: 0px 5px;
     display: flex;
     align-items: center;
     justify-content: center;
