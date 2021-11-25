@@ -23,7 +23,8 @@ export const CollectionItemContainer = styled.div`
         border: 1px solid white;
     }
 
-    &:hover {
+    &:hover,
+    &:active {
         .image {
             opacity: 0.9;
         }

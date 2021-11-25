@@ -17,8 +17,9 @@ export const CollectionTitle = styled.h2`
 export const CollectionItemsContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
+    max-width: 1200px;
     justify-content: space-evenly;
     & > div {
-        margin-bottom: 30px;
+        margin: 10px 30px 30px;
     }
 `;
