@@ -2,6 +2,7 @@
 
 -   This is the optimized version of this project using:
 
+    -   Express backend server
     -   CSS-in-JS
     -   styled components
     -   Firebase
