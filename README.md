@@ -60,6 +60,8 @@
 
 -   ### Stripe Checkout
 
+    ![Stripe-payment-backend-flow](https://raw.githubusercontent.com/kawgh1/react-crown-clothing-optimized/redux-saga/stripe-payment-flow-with-express-backend.png)
+
     -   **npm install react-stripe-checkout**
     -   https://github.com/azmenak/react-stripe-checkout
 
