@@ -18,6 +18,13 @@
 
 ## Tools Used
 
+-   ### Axios vs Fetch
+
+    -   #### Fetch
+        -   https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#supplying_request_options
+    -   #### Axious
+        -   https://www.npmjs.com/package/axios
+
 -   ### Sass CSS
     -   **$ npm install node-sass --save**
     -   **Google Fonts**
