@@ -11,18 +11,18 @@ const StripeCheckoutButton = ({ price }) => {
         // alert("Payment Successful");
         // send total and token to backend for stripe processing of payment
         axios({
-            url: "payment",
+            url: "http://localhost:5000/payment",
             method: "post",
             data: {
                 amount: priceForStripe,
-                token,
+                token: token,
             },
         })
             .then((response) => {
                 alert("Payment successful");
             })
             .catch((error) => {
-                console.log("Payment error: ", JSON.parse(error));
+                console.log("Payment error: ", error);
                 alert(
                     "Payment Unsuccessful: We encountered an error when processing your payment. Please use the provided test credit card. "
                 );
