@@ -17,9 +17,8 @@
     -   https://github.com/ZhangMYihua/lesson-34
 
 -   ### I opted not to use Apollo + GraphQL in this implementation because Redux Sagas have already been implemented. I have included the notes for Apollo + Graph QL for reference
-    -   For the Apollo + GraphQL implementation visit here
 
-## Tools Used
+    -   For the Apollo + GraphQL implementation visit here
 
 -   ### GraphQL
 
@@ -131,6 +130,8 @@
 
     -   ### Apollo
         ![apollo-diagram](https://raw.githubusercontent.com/kawgh1/react-crown-clothing-optimized/graphql/diagrams/apollo-diagram.png)
+
+# Tools Used
 
 -   ### Axios vs Fetch
 
