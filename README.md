@@ -9,8 +9,6 @@
     -   Redux Thunk
     -   Redux Sagas
     -   Hooks
-    -   Apollo
-    -   GraphQL
 
 -   Based on course by Zero-to-Mastery
 
