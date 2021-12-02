@@ -10,6 +10,8 @@
     -   Redux Sagas
     -   Hooks
     -   Stripe API
+    -   React Lazy Loading Pages
+    -   React Suspense
 
 -   Based on course by Zero-to-Mastery
 
