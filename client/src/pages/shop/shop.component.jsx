@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, lazy, Suspense } from "react";
 
 // shop data
 // import SHOP_DATA from './shop.data.js'
@@ -21,13 +21,28 @@ import { Route } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchCollectionsStart } from "../../redux/shop/shop.actions";
 
+// Spinner
+import Spinner from "../../components/spinner/spinner.component";
+
 // import {
 //     firestore,
 //     convertCollectionSnapshotToMap,
 // } from "../../firebase/firebase.utils";
 
-import CollectionsOverviewContainer from "../../components/collections-overview/collections-overview.container";
-import CollectionPageContainer from "../collection/collection.container";
+// ROUTES / SUB PAGES WITHIN SHOP PAGE
+// import CollectionsOverviewContainer from "../../components/collections-overview/collections-overview.container";
+// import CollectionPageContainer from "../collection/collection.container";
+
+// PERFORMANCE - LAZY LOADED PAGES
+// lazy loading means, when the main page loads it will load everything except what is explicitly "lazy" loaded
+const CollectionsOverviewContainer = lazy(() =>
+    import(
+        "../../components/collections-overview/collections-overview.container"
+    )
+);
+const CollectionPageContainer = lazy(() =>
+    import("../collection/collection.container")
+);
 
 const ShopPage = ({ fetchCollectionsStart, match }) => {
     useEffect(() => {
@@ -36,15 +51,17 @@ const ShopPage = ({ fetchCollectionsStart, match }) => {
 
     return (
         <div className="shop-page">
-            <Route
-                exact
-                path={`${match.path}`}
-                component={CollectionsOverviewContainer}
-            />
-            <Route
-                path={`${match.path}/:collectionId`}
-                component={CollectionPageContainer}
-            />
+            <Suspense fallback={<Spinner />}>
+                <Route
+                    exact
+                    path={`${match.path}`}
+                    component={CollectionsOverviewContainer}
+                />
+                <Route
+                    path={`${match.path}/:collectionId`}
+                    component={CollectionPageContainer}
+                />
+            </Suspense>
         </div>
     );
 };

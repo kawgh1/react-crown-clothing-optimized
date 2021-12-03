@@ -13,20 +13,23 @@ a Spinner Component or the Wrapped Component with ...otherProps
 
 import Spinner from "../spinner/spinner.component";
 
-const WithSpinner = (WrappedComponent) => {
-    // const Spinner = ({ isLoading, ...otherProps }) => {
-    //     return isLoading ? (
-    //         <SpinnerOverlay>
-    //             <SpinnerContainer />
-    //         </SpinnerOverlay>
-    //     ) : (
-    //         <WrappedComponent {...otherProps} />
-    //     );
-    // };
-    // return Spinner;
-    const Spinner = ({ isLoading, ...otherProps }) => {
+// const WithSpinner = (WrappedComponent) => {
+//     const Spinner = ({ isLoading, ...otherProps }) => {
+//         return isLoading ? (
+//             <SpinnerOverlay>
+//                 <SpinnerContainer />
+//             </SpinnerOverlay>
+//         ) : (
+//             <WrappedComponent {...otherProps} />
+//         );
+//     };
+//     return Spinner;
+// };
+
+const WithSpinner =
+    (WrappedComponent) =>
+    ({ isLoading, ...otherProps }) => {
         return isLoading ? <Spinner /> : <WrappedComponent {...otherProps} />;
     };
-};
 
 export default WithSpinner;
