@@ -28,6 +28,9 @@ import { createStructuredSelector } from "reselect";
 // Spinner
 import Spinner from "./components/spinner/spinner.component";
 
+// Error Boundary component
+import ErrorBoundary from "./components/error-boundary/error-boundary.component";
+
 // PAGES
 // import HomePage from "./pages/homepage/homepage.component";
 // import ShopPage from "./pages/shop/shop.component";
@@ -54,22 +57,28 @@ const App = ({ checkUserSession, currentUser }) => {
         <div>
             <Header />
             <Switch>
-                <Suspense fallback={<Spinner />}>
-                    <Route exact path="/" component={HomePage} />
-                    <Route path="/shop" component={ShopPage} />
-                    <Route exact path="/checkout" component={CheckoutPage} />
-                    <Route
-                        exact
-                        path="/signin"
-                        render={() =>
-                            currentUser ? (
-                                <Redirect to="/" />
-                            ) : (
-                                <SigninSignupPage />
-                            )
-                        }
-                    />
-                </Suspense>
+                <ErrorBoundary>
+                    <Suspense fallback={<Spinner />}>
+                        <Route exact path="/" component={HomePage} />
+                        <Route path="/shop" component={ShopPage} />
+                        <Route
+                            exact
+                            path="/checkout"
+                            component={CheckoutPage}
+                        />
+                        <Route
+                            exact
+                            path="/signin"
+                            render={() =>
+                                currentUser ? (
+                                    <Redirect to="/" />
+                                ) : (
+                                    <SigninSignupPage />
+                                )
+                            }
+                        />
+                    </Suspense>
+                </ErrorBoundary>
             </Switch>
         </div>
     );

@@ -27,6 +27,7 @@ so we have to create what's called a LOADING STATE and in this loading state we 
 
 const CollectionPage = ({ collection }) => {
     const { title, items } = collection;
+
     return (
         <CollectionPageContainer>
             <CollectionTitle>{title}</CollectionTitle>
