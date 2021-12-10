@@ -2,6 +2,7 @@
 
 -   This is the optimized version of this project using:
 
+    -   Progressive Web App (PWA)
     -   Express backend server
     -   CSS-in-JS
     -   styled components
@@ -27,6 +28,59 @@
     -   https://github.com/kawgh1/crown-clothing-graph-ql
 
 # Tools Used
+
+-   ### Progressive Web App (PWA)
+
+    -   Starting with Create React App 4, src/service-worker.js is opt-in only. What does that mean? It means that you may not automatically have the service worker file when you initially create your react app. To generate it, you will have to follow this guide. You can also use this guide on PWA to get the latest:
+        -   https://create-react-app.dev/docs/making-a-progressive-web-app/
+    -   Submitting PWAs to App Stores
+        -   https://debuggerdotbreak.judahgabriel.com/2018/04/13/i-built-a-pwa-and-published-it-in-3-app-stores-heres-what-i-learned/
+    -   PWA - Android vs iOS
+        -   https://medium.com/@firt/progressive-web-apps-on-ios-are-here-d00430dee3a7
+    -   Explore other PWAs
+        -   https://appsco.pe/
+    -   PWA CHECKLIST
+        -   https://web.dev/pwa-checklist/
+    -   Make your own HTTPS certificates with Let's Encrypt
+        -   https://letsencrypt.org/docs/
+    -   ServiceWorker.js inspection/compatibility tool for different browsers
+        -   https://jakearchibald.github.io/isserviceworkerready/
+    -   Implementing Mobile Push Notifications in a PWA
+
+        -   https://auth0.com/blog/introduction-to-progressive-web-apps-push-notifications-part-3/
+
+    -   ### Create React App Update re: PWA
+
+        -   As of November 7, 2020 the core react team doesn't ship with PWA by default anymore, meaning they won't build your service-worker.js file in the final build folder! Do not worry, there are just some additional steps you will have to run to convert your react app to be able to perform the next step modifications to be PWA compliant!
+
+        You only need to do this if you are running react-scripts v.4 or greater or React v17 or greater and you did not create this project using the cra-template-pwa when we initialized our project.
+
+        Follow the following steps:
+
+        1. In a new and separate directory from our current project, generate a new CRA react app with the service worker template:
+
+        npx create-react-app my-app --template cra-template-pwa
+
+        2. Copy the service-worker.js and serviceWorkerRegistration.js file from the new created app and add it into our client/src directory.
+
+        3. Copy the all the "workbox-\*" dependencies from the package.json file in the dependencies section and add it into our client folders package.json dependencies. Then re-install your packages using yarn or npm depending on whichever package manager you have been using up to this point!
+
+-   ### PWA in this App
+
+    -   We have to make one minor change to make sure our code doesn't require us to use https in development. In our server.js file, on line 16 we have:
+
+        app.use(enforce.HTTPS({ trustProtoHeader: true }));
+
+    We want to move this into the conditional block we have that checks if our NODE_ENV is in production mode from line 19-25, simply move the line above into that if block like so:
+
+            if (process.env.NODE_ENV === 'production') {
+                app.use(enforce.HTTPS({ trustProtoHeader: true }));
+                app.use(express.static(path.join(__dirname, 'client/build')));
+
+                app.get('*', function(req, res) {
+                    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+                });
+            }
 
 -   ### Axios vs Fetch
 
