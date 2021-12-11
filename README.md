@@ -2,8 +2,7 @@
 
 -   This is the optimized version of this project using:
 
-    **- Progressive Web App (PWA)**
-
+    -   **Progressive Web App (PWA)**
     -   Express backend server
     -   CSS-in-JS
     -   styled components
