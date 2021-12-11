@@ -67,9 +67,11 @@
 
 -   ### PWA in this App
 
-    -   **npm install express-sslify**
+    -   Require HTTPS in browser
 
-        -   this package allows us to implement automatic HTTPS on our site, not all web hosting platforms provide this out of the box (like Heroku)
+        -   **npm install express-sslify**
+
+        -   this package allows us to implement automatic HTTPS on our site, not all web hosting platforms provide this out of the box (like Heroku) - HTTPS is required for PWAs
 
     -   We have to make one minor change to make sure our code doesn't require us to use https in development. In our server.js file, on line 16 we have:
 
