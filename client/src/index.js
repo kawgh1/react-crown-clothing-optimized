@@ -19,7 +19,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import { store, persistor } from "./redux/store";
 
 // PWA
-import * as serviceWorker from "./service-worker";
+import * as serviceWorker from "./serviceWorkerRegistration";
 
 ReactDOM.render(
     <Provider store={store}>

@@ -33,19 +33,19 @@
 
     -   Starting with Create React App 4, src/service-worker.js is opt-in only. What does that mean? It means that you may not automatically have the service worker file when you initially create your react app. To generate it, you will have to follow this guide. You can also use this guide on PWA to get the latest:
         -   https://create-react-app.dev/docs/making-a-progressive-web-app/
-    -   Submitting PWAs to App Stores
+    -   #### Submitting PWAs to App Stores
         -   https://debuggerdotbreak.judahgabriel.com/2018/04/13/i-built-a-pwa-and-published-it-in-3-app-stores-heres-what-i-learned/
-    -   PWA - Android vs iOS
+    -   #### PWA - Android vs iOS
         -   https://medium.com/@firt/progressive-web-apps-on-ios-are-here-d00430dee3a7
-    -   Explore other PWAs
+    -   #### Explore other PWAs
         -   https://appsco.pe/
-    -   PWA CHECKLIST
+    -   #### PWA CHECKLIST
         -   https://web.dev/pwa-checklist/
-    -   Make your own HTTPS certificates with Let's Encrypt
+    -   #### Make your own HTTPS certificates with Let's Encrypt
         -   https://letsencrypt.org/docs/
-    -   ServiceWorker.js inspection/compatibility tool for different browsers
+    -   #### ServiceWorker.js inspection/compatibility tool for different browsers
         -   https://jakearchibald.github.io/isserviceworkerready/
-    -   Implementing Mobile Push Notifications in a PWA
+    -   #### Implementing Mobile Push Notifications in a PWA
 
         -   https://auth0.com/blog/introduction-to-progressive-web-apps-push-notifications-part-3/
 
