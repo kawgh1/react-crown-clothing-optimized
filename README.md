@@ -2,7 +2,8 @@
 
 -   This is the optimized version of this project using:
 
-    -   Progressive Web App (PWA)
+    **- Progressive Web App (PWA)**
+
     -   Express backend server
     -   CSS-in-JS
     -   styled components
@@ -59,7 +60,7 @@
 
         1. In a new and separate directory from our current project, generate a new CRA react app with the service worker template:
 
-        npx create-react-app my-app --template cra-template-pwa
+            **npx create-react-app my-app --template cra-template-pwa**
 
         2. Copy the service-worker.js and serviceWorkerRegistration.js file from the new created app and add it into our client/src directory.
 
@@ -69,7 +70,7 @@
 
     -   We have to make one minor change to make sure our code doesn't require us to use https in development. In our server.js file, on line 16 we have:
 
-        app.use(enforce.HTTPS({ trustProtoHeader: true }));
+            app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
     We want to move this into the conditional block we have that checks if our NODE_ENV is in production mode from line 19-25, simply move the line above into that if block like so:
 
