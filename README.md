@@ -29,6 +29,28 @@
 
 # Tools Used
 
+-   # React-Service-Worker
+
+    -   https://github.com/maxjf1/react-service-worker
+
+        The react-service-worker module provides better organization and more features like listen for updates on your APP easily.
+
+        The integration is very simple, just open the src/index file in your project and replace
+
+                import registerServiceWorker from './registerServiceWorker';
+
+        for:
+
+                import registerServiceWorker from 'react-service-worker';
+
+        and done! This way, the react service worker will act just like the default registerServiceWorker.
+
+        An better use of this module would be:
+
+                const appSW = registerServiceWorker()
+
+                ReactDOM.render(<App appServiceWorker={appSW} />, document.getElementById('root'));
+
 -   ### Progressive Web App (PWA)
 
     -   Starting with Create React App 4, src/service-worker.js is opt-in only. What does that mean? It means that you may not automatically have the service worker file when you initially create your react app. To generate it, you will have to follow this guide. You can also use this guide on PWA to get the latest:
