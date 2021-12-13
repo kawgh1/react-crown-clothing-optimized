@@ -31,6 +31,8 @@
 
 -   # React-Service-Worker
 
+    -**npm install react-service-worker**
+
     -   https://github.com/maxjf1/react-service-worker
 
         The react-service-worker module provides better organization and more features like listen for updates on your APP easily.
