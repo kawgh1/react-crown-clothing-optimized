@@ -19,7 +19,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import { store, persistor } from "./redux/store";
 
 // PWA
-import * as serviceWorker from "./service-worker";
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 
 ReactDOM.render(
     <Provider store={store}>
@@ -32,7 +32,7 @@ ReactDOM.render(
     document.getElementById("root")
 );
 
-serviceWorker.register();
+serviceWorkerRegistration.register();
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
