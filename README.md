@@ -89,6 +89,7 @@
             -   **npm install -g lighthouse**
             -   **lighthouse https://example.com --view**
             -   Use the CLI command when Chrome browser lighthouse report is erroring out
+            -   Note running the command above creates a lighthouse report HTML file in your src directory
 
     -   Require HTTPS in browser
 
