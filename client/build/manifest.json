@@ -21,7 +21,8 @@
         {
             "src": "/android-chrome-256x256.png",
             "sizes": "256x256",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any maskable"
         },
         {
             "src": "/android-chrome-512x512.png",

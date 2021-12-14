@@ -18,9 +18,6 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { store, persistor } from "./redux/store";
 
-// PWA
-import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
-
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
@@ -31,8 +28,6 @@ ReactDOM.render(
     </Provider>,
     document.getElementById("root")
 );
-
-serviceWorkerRegistration.register();
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
