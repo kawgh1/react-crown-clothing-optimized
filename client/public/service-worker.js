@@ -1,6 +1,13 @@
 // CACHE is the name for browser storage
 const CACHE_NAME = "crown-clothing-cache-version-1";
-const urlsToCache = ["index.html", "offline.html"];
+const urlsToCache = [
+    "index.html",
+    "offline.html",
+    "favicon.ico",
+    "android-chrome-192x192.png",
+    "android-chrome-256x256.png",
+    "android-chrome-512x512.png",
+];
 
 // this represents the serviceworker itself
 const self = this;
