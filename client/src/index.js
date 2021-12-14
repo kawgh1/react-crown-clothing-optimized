@@ -20,6 +20,7 @@ import { store, persistor } from "./redux/store";
 
 // PWA
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
+import * as serviceWorker from "./service-worker";
 
 ReactDOM.render(
     <Provider store={store}>
@@ -32,7 +33,7 @@ ReactDOM.render(
     document.getElementById("root")
 );
 
-serviceWorkerRegistration.register();
+serviceWorkerRegistration.register(serviceWorker);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
