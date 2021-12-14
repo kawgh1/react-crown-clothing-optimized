@@ -49,13 +49,16 @@
 
         -   https://auth0.com/blog/introduction-to-progressive-web-apps-push-notifications-part-3/
 
+    -   ![lighthouse-report](https://raw.githubusercontent.com/kawgh1/react-crown-clothing-optimized/performance-and-testing/diagrams/lighthouse2.png)
+
     -   ### Create React App Update re: PWA
 
-        -   -   Lighthouse CLI
+        -   Lighthouse CLI
 
-    -   **npm install -g lighthouse**
-    -   **lighthouse https://example.com --view**
-    -   Use the CLI command when Chrome browser lighthouse report is erroring out
+            -   **npm install -g lighthouse**
+            -   **lighthouse https://example.com --view**
+            -   Use the CLI command when Chrome browser lighthouse report is erroring out
+            -   Note running the command above creates a lighthouse report HTML file in your src directory
 
         -   Surprise - creating a working Service Worker for a PWA out of a Create React App setup usually ended up requiring you to eject out of CRA. So many headaches around this.
 
