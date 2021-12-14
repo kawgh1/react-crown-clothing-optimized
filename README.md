@@ -29,30 +29,6 @@
 
 # Tools Used
 
--   # React-Service-Worker
-
-    -**npm install react-service-worker**
-
-    -   https://github.com/maxjf1/react-service-worker
-
-        The react-service-worker module provides better organization and more features like listen for updates on your APP easily.
-
-        The integration is very simple, just open the src/index file in your project and replace
-
-                import registerServiceWorker from './registerServiceWorker';
-
-        for:
-
-                import registerServiceWorker from 'react-service-worker';
-
-        and done! This way, the react service worker will act just like the default registerServiceWorker.
-
-        An better use of this module would be:
-
-                const appSW = registerServiceWorker()
-
-                ReactDOM.render(<App appServiceWorker={appSW} />, document.getElementById('root'));
-
 -   ### Progressive Web App (PWA)
 
     -   Starting with Create React App 4, src/service-worker.js is opt-in only. What does that mean? It means that you may not automatically have the service worker file when you initially create your react app. To generate it, you will have to follow this guide. You can also use this guide on PWA to get the latest:
@@ -75,6 +51,8 @@
 
     -   ### Create React App Update re: PWA
 
+        -   Surprise - creating a working Service Worker for a PWA out of a Create React App setup usually ended up requiring you to eject out of CRA. So many headaches around this.
+
         -   As of November 7, 2020 the core react team doesn't ship with PWA by default anymore, meaning they won't build your service-worker.js file in the final build folder! Do not worry, there are just some additional steps you will have to run to convert your react app to be able to perform the next step modifications to be PWA compliant!
 
         You only need to do this if you are running react-scripts v.4 or greater or React v17 or greater and you did not create this project using the cra-template-pwa when we initialized our project.
@@ -90,6 +68,14 @@
         3. Copy the all the "workbox-\*" dependencies from the package.json file in the dependencies section and add it into our client folders package.json dependencies. Then re-install your packages using yarn or npm depending on whichever package manager you have been using up to this point!
 
 -   ### PWA in this App
+
+    -   Favicon Generator
+
+        -   https://realfavicongenerator.net/
+
+    -   Manifest Generator
+
+        -   https://app-manifest.firebaseapp.com/
 
     -   Require HTTPS in browser
 
