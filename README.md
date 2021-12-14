@@ -51,6 +51,12 @@
 
     -   ### Create React App Update re: PWA
 
+        -   -   Lighthouse CLI
+
+    -   **npm install -g lighthouse**
+    -   **lighthouse https://example.com --view**
+    -   Use the CLI command when Chrome browser lighthouse report is erroring out
+
         -   Surprise - creating a working Service Worker for a PWA out of a Create React App setup usually ended up requiring you to eject out of CRA. So many headaches around this.
 
         -   As of November 7, 2020 the core react team doesn't ship with PWA by default anymore, meaning they won't build your service-worker.js file in the final build folder! Do not worry, there are just some additional steps you will have to run to convert your react app to be able to perform the next step modifications to be PWA compliant!
@@ -76,6 +82,13 @@
     -   Manifest Generator
 
         -   https://app-manifest.firebaseapp.com/
+
+    -   Chrome Lighthouse Tool is very finicky - here is the lighthouse CLI
+
+        -   Lighthouse CLI
+            -   **npm install -g lighthouse**
+            -   **lighthouse https://example.com --view**
+            -   Use the CLI command when Chrome browser lighthouse report is erroring out
 
     -   Require HTTPS in browser
 
